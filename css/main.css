@@ -1,0 +1,1001 @@
+@import url("https://use.typekit.net/fbj2gbm.css");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-left-text {
+  text-align: left !important;
+}
+
+.margin-vertical-xsmall {
+  margin: 1rem 0 !important;
+}
+
+.margin-vertical-small {
+  margin: 2rem 0 !important;
+}
+
+.margin-vertical-medium {
+  margin: 4rem 0 !important;
+}
+
+.margin-vertical-large {
+  margin: 8rem 0 !important;
+}
+
+.margin-vertical-xlarge {
+  margin: 12rem 0 !important;
+}
+
+.margin-top-xsmall {
+  margin-top: 1rem !important;
+}
+
+.margin-top-small {
+  margin-top: 2rem !important;
+}
+
+.margin-top-medium {
+  margin-top: 4rem !important;
+}
+
+.margin-top-large {
+  margin-top: 8rem !important;
+}
+
+.margin-top-xlarge {
+  margin-top: 12rem !important;
+}
+
+.margin-bottom-xsmall {
+  margin-bottom: 1rem !important;
+}
+
+.margin-bottom-small {
+  margin-bottom: 2rem !important;
+}
+
+.margin-bottom-medium {
+  margin-bottom: 4rem !important;
+}
+
+.margin-bottom-large {
+  margin-bottom: 8rem !important;
+}
+
+.margin-bottom-xlarge {
+  margin-bottom: 12rem !important;
+}
+
+@media (max-width: 36em) {
+  .margin-vertical-xsmall,
+  .margin-vertical-small,
+  .margin-vertical-medium,
+  .margin-vertical-large,
+  .margin-vertical-xlarge {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .margin-top-xsmall,
+  .margin-top-small,
+  .margin-top-medium,
+  .margin-top-large,
+  .margin-top-xlarge {
+    margin-top: 2rem !important;
+  }
+  .margin-bottom-xsmall,
+  .margin-bottom-small,
+  .margin-bottom-medium,
+  .margin-bottom-large,
+  .margin-bottom-xlarge {
+    margin-bottom: 2rem !important;
+  }
+}
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  align-self: center;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #00384e !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #00384e !important;
+}
+
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  box-shadow: none;
+}
+
+.temporizador {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  border-radius: 10px;
+}
+.temporizador__btn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  background-color: #fff;
+  border-radius: 100%;
+  border: none;
+  transition: all 0.1s ease-in-out;
+}
+.temporizador__clock {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+}
+
+.flip-card {
+  cursor: pointer;
+  position: relative;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  width: 100%;
+}
+.flip-card--flipped .flip-card__side--front {
+  transform: rotateY(180deg);
+}
+.flip-card--flipped .flip-card__side--back {
+  transform: rotateY(0);
+}
+.flip-card__side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  text-align: center;
+  border-radius: 1rem;
+  transition: transform 0.8s ease, background-color 0.2s ease;
+}
+.flip-card__side--back {
+  transform: rotateY(-180deg);
+}
+
+.accordeon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.accordeon__content {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 1s ease, height 1s ease, padding 0.5s ease;
+}
+.accordeon__item {
+  cursor: pointer;
+}
+.accordeon__item--active .accordeon__content {
+  opacity: 1;
+  height: auto;
+  padding-top: 1rem;
+}
+.accordeon__item--active .accordeon__title--icon {
+  transform: rotate(0);
+}
+.accordeon__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordeon__title--icon {
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.course-324 ::selection {
+  color: #fff;
+  background-color: #71b223;
+}
+
+.prolata-2026-heading {
+  font-family: "univia-pro", sans-serif;
+  line-height: 1.2;
+  color: #000;
+  text-transform: uppercase;
+}
+.prolata-2026-heading--primary {
+  width: fit-content;
+  position: relative;
+  font-weight: 700;
+  font-size: 48px;
+  margin-bottom: 60px;
+  color: #006060;
+}
+.prolata-2026-heading--primary::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  width: 70%;
+  height: 5px;
+  background-color: #71b223;
+}
+@media (max-width: 48em) {
+  .prolata-2026-heading--primary {
+    font-size: 32px;
+  }
+}
+.prolata-2026-heading--secondary {
+  font-weight: 500;
+  font-size: 22px;
+  color: #71b223;
+  margin: 50px 0 20px;
+}
+.prolata-2026-heading--tertiary {
+  font-weight: 500;
+  font-size: 18px;
+  color: #71b223;
+  margin: 30px 0 5px;
+}
+
+.prolata-2026-text {
+  font-family: "univia-pro", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  margin: 0;
+}
+.prolata-2026-text--bold {
+  font-weight: 700;
+}
+.prolata-2026-text--italic {
+  font-style: italic;
+}
+.prolata-2026-text--highlight {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 10px 0 10px 0;
+  color: #fff;
+  background-color: #b95100;
+}
+.prolata-2026-text--link:link, .prolata-2026-text--link:visited {
+  color: #0d95b5;
+  transition: all 0.2s ease;
+}
+.prolata-2026-text--link:hover {
+  color: #b95100;
+  transition: all 0.2s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.prolata-2026-text--source {
+  font-size: 12px;
+}
+.prolata-2026-text:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.prolata-2026-list {
+  list-style: none;
+  margin: 30px 0;
+}
+
+.prolata-2026-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.prolata-2026-list-item__bullet, .prolata-2026-list-item__number {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #2d5b41;
+}
+.prolata-2026-list-item__bullet > * {
+  font-size: 14px;
+  color: #fff;
+}
+.prolata-2026-list-item__number {
+  font-family: "univia-pro", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+.prolata-2026-list-item__number > span {
+  display: inline-block;
+  margin-top: 2px;
+}
+.prolata-2026-list-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.prolata-2026-2-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+.prolata-2026-2-col--wide-left {
+  grid-template-columns: 2fr 1fr;
+}
+.prolata-2026-2-col--wide-right {
+  grid-template-columns: 1fr 2fr;
+}
+.prolata-2026-2-col--reverse > div:first-child {
+  order: 2;
+}
+.prolata-2026-2-col--reverse > div:last-child {
+  order: 1;
+}
+@media (max-width: 64em) {
+  .prolata-2026-2-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prolata-2026-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prolata-2026-table__head {
+  background-color: #006060;
+}
+.prolata-2026-table__body {
+  background-color: #fff;
+}
+.prolata-2026-table__body--striped .prolata-2026-table__row:nth-child(even) {
+  background-color: #85ca98;
+}
+.prolata-2026-table__body--column-header .prolata-2026-table__cell:first-child {
+  font-weight: 700;
+  color: #fff;
+  background-color: #00826f;
+}
+.prolata-2026-table__header, .prolata-2026-table__cell {
+  font-family: "univia-pro", sans-serif;
+  font-size: 16px;
+  padding: 20px;
+}
+.prolata-2026-table__header {
+  font-weight: 700;
+  color: #fff;
+}
+.prolata-2026-table__cell {
+  font-weight: 400;
+  color: #000;
+}
+.prolata-2026-table--text-center {
+  text-align: center;
+}
+.prolata-2026-table--compare .prolata-2026-table__cell:first-child {
+  background-color: #85ca98;
+}
+.prolata-2026-table--compare .prolata-2026-table__cell:last-child {
+  background-color: #fff;
+}
+.prolata-2026-table--compare .prolata-2026-table__cell {
+  width: 50%;
+  border-bottom: 1px solid #00826f;
+}
+@media (max-width: 48em) {
+  .prolata-2026-table {
+    display: none;
+  }
+}
+.prolata-2026-table--mobile {
+  display: none !important;
+}
+.prolata-2026-table--mobile > div {
+  width: 100%;
+}
+.prolata-2026-table--mobile__header, .prolata-2026-table--mobile__column-header, .prolata-2026-table--mobile__cell {
+  font-family: "univia-pro", sans-serif;
+  font-size: 16px;
+  padding: 20px;
+}
+.prolata-2026-table--mobile__header, .prolata-2026-table--mobile__column-header {
+  text-align: center;
+}
+.prolata-2026-table--mobile__header {
+  font-weight: 700;
+  color: #fff;
+  background-color: #2d5b41;
+}
+.prolata-2026-table--mobile__column-header {
+  font-weight: 500;
+  color: #fff;
+  background-color: #00826f;
+}
+.prolata-2026-table--mobile__cell {
+  font-weight: 400;
+  color: #000;
+  border: 1px solid #00826f;
+}
+@media (max-width: 48em) {
+  .prolata-2026-table--mobile {
+    display: block !important;
+  }
+}
+
+.prolata-2026-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.prolata-2026-container--text-center .prolata-2026-box {
+  text-align: center;
+}
+.prolata-2026-container .prolata-2026-box,
+.prolata-2026-container .prolata-2026-flip-card {
+  flex: 1;
+}
+@media (max-width: 64em) {
+  .prolata-2026-container .prolata-2026-box,
+  .prolata-2026-container .prolata-2026-flip-card {
+    width: 30px;
+    flex: auto;
+  }
+}
+@media (max-width: 64em) {
+  .prolata-2026-container {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 48em) {
+  .prolata-2026-container {
+    gap: 20px;
+  }
+}
+
+.prolata-2026-box {
+  padding: 40px;
+}
+.prolata-2026-box--orange {
+  background-color: #b95100;
+}
+.prolata-2026-box--orange .prolata-2026-text--highlight {
+  color: #b95100 !important;
+  background-color: #fff;
+}
+.prolata-2026-box--blue {
+  background-color: #0d95b5;
+}
+.prolata-2026-box--blue .prolata-2026-text--highlight {
+  color: #0d95b5 !important;
+  background-color: #fff;
+}
+.prolata-2026-box--yellow {
+  background-color: #a87d0a;
+}
+.prolata-2026-box--yellow .prolata-2026-text--highlight {
+  color: #a87d0a !important;
+  background-color: #fff;
+}
+.prolata-2026-box--red {
+  background-color: #923b48;
+}
+.prolata-2026-box--red .prolata-2026-text--highlight {
+  color: #923b48 !important;
+  background-color: #fff;
+}
+.prolata-2026-box--green {
+  background-color: #00826f;
+}
+.prolata-2026-box--green .prolata-2026-text--highlight {
+  background-color: #71b223;
+}
+.prolata-2026-box__icon {
+  font-size: 80px;
+  color: #85ca98;
+}
+.prolata-2026-box .prolata-2026-text {
+  color: #fff;
+}
+.prolata-2026-box .prolata-2026-text--link {
+  color: #fff;
+  opacity: 0.9;
+}
+.prolata-2026-box .prolata-2026-text--link:hover {
+  opacity: 1;
+}
+.prolata-2026-box .prolata-2026-heading {
+  color: #fff;
+  margin-top: 0;
+}
+@media (max-width: 48em) {
+  .prolata-2026-box {
+    padding: 20px;
+  }
+}
+
+.prolata-2026-img {
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: 50px 0 50px 0;
+}
+.prolata-2026-img--float-left {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.prolata-2026-img--float-right {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.prolata-2026-button {
+  display: block;
+  outline: 2px solid transparent;
+}
+.prolata-2026-button:link, .prolata-2026-button:visited {
+  width: fit-content;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: "univia-pro", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  background-color: #71b223;
+  transition: all 0.2s ease;
+}
+.prolata-2026-button:hover {
+  color: #fff;
+  background-color: #2d5b41;
+}
+.prolata-2026-button:focus {
+  outline: 2px solid #0d95b5;
+  outline-offset: 5px;
+}
+
+.prolata-2026-separator {
+  margin: 60px 0;
+  border-top: 4px solid #71b223;
+}
+
+.prolata-2026-embed {
+  display: block;
+  width: 100%;
+  height: 600px;
+}
+
+.prolata-2026-icon {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  font-size: 24px;
+  color: #212e3e;
+}
+
+.prolata-2026-slider__slide {
+  box-sizing: border-box;
+  width: calc(100% - 120px);
+  margin: 0 auto 40px;
+  padding: 40px;
+  background-color: #006060;
+}
+.prolata-2026-slider__slide .prolata-2026-heading {
+  color: #fff;
+  margin-top: 0;
+}
+.prolata-2026-slider__slide .prolata-2026-text {
+  color: #fff;
+}
+@media (max-width: 48em) {
+  .prolata-2026-slider__slide {
+    width: 100%;
+    padding: 20px;
+  }
+}
+.prolata-2026-slider.prolata-2026-table--mobile .prolata-2026-slider__slide {
+  background-color: transparent;
+  padding: 0;
+}
+.prolata-2026-slider.prolata-2026-table--mobile .prolata-2026-slider__slide .prolata-2026-text {
+  color: #000;
+}
+.prolata-2026-slider .swiper-pagination-bullet {
+  background: #006060 !important;
+  opacity: 1;
+}
+.prolata-2026-slider .swiper-pagination-bullet-active {
+  background-color: #85ca98 !important;
+}
+.prolata-2026-slider .swiper-button-prev,
+.prolata-2026-slider .swiper-button-next {
+  color: #006060 !important;
+  transition: all 0.2s ease !important;
+}
+.prolata-2026-slider .swiper-button-prev:hover,
+.prolata-2026-slider .swiper-button-next:hover {
+  color: #85ca98 !important;
+}
+@media (max-width: 48em) {
+  .prolata-2026-slider .swiper-button-prev,
+  .prolata-2026-slider .swiper-button-next {
+    display: none !important;
+  }
+}
+
+.prolata-2026-accordion {
+  font-family: "univia-pro", sans-serif;
+  font-weight: 400;
+  gap: 10px;
+}
+.prolata-2026-accordion__content {
+  padding: 0;
+}
+.prolata-2026-accordion__content .prolata-2026-text {
+  font-size: 16px;
+  color: #fff;
+}
+.prolata-2026-accordion__content .prolata-2026-text--highlight {
+  color: #00334f;
+  background-color: #fff;
+}
+.prolata-2026-accordion__item {
+  padding: 30px;
+  background-color: #0d95b5;
+}
+.prolata-2026-accordion__item.accordeon__item--active {
+  background: none !important;
+  background-color: #00334f !important;
+}
+@media (max-width: 48em) {
+  .prolata-2026-accordion__item {
+    padding: 20px;
+  }
+}
+.prolata-2026-accordion__title {
+  font-weight: 700;
+  font-size: 20px;
+  gap: 10px;
+  color: #fff;
+}
+.prolata-2026-accordion__title--text {
+  margin: 0;
+}
+.prolata-2026-accordion__title--icon {
+  color: #fff;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+@media (max-width: 48em) {
+  .prolata-2026-accordion {
+    gap: 5px;
+  }
+}
+
+.prolata-2026-flip-card__card-side {
+  border-radius: 0;
+  padding: 60px;
+  flex-direction: column;
+  border-radius: 50px 0 50px 0;
+}
+.prolata-2026-flip-card__card-side.flip-card__side--front {
+  background-color: #a87d0a;
+}
+.prolata-2026-flip-card__card-side.flip-card__side--back {
+  background-color: #b95100;
+}
+.prolata-2026-flip-card__card-side .flip-card__turn-icon {
+  color: #fff;
+  font-size: 30px;
+}
+.prolata-2026-flip-card__card-side .prolata-2026-heading {
+  color: #fff;
+  margin-top: 0;
+}
+.prolata-2026-flip-card__card-side .prolata-2026-text {
+  color: #fff;
+}
+@media (max-width: 48em) {
+  .prolata-2026-flip-card__card-side {
+    padding: 20px;
+  }
+}
+
+.prolata-enroll-form {
+  position: relative;
+  width: 100%;
+  padding: 60px;
+  background: url("../assets/BG.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.prolata-enroll-form .prolata-2026-heading--primary {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.prolata-enroll-form .prolata-2026-heading--primary::after {
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2d5b41;
+}
+.prolata-enroll-form .prolata-2026-heading--secondary {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  padding: 10px 20px;
+  border-radius: 20px 0 20px 0;
+  color: #fff;
+  background-color: #0d95b5;
+}
+.prolata-enroll-form .prolata-2026-form {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(45, 91, 65, 0.7);
+  padding: 40px;
+}
+.prolata-enroll-form .prolata-2026-fieldset {
+  border: none;
+}
+.prolata-enroll-form .prolata-2026-fieldset__legend {
+  margin-bottom: 40px;
+  font-family: "univia-pro", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #fff;
+}
+.prolata-enroll-form .prolata-2026-fieldset:not(:first-child) {
+  margin-top: 40px;
+}
+.prolata-enroll-form .prolata-2026-2-col {
+  gap: 0;
+  column-gap: 30px;
+  align-items: flex-start;
+}
+.prolata-enroll-form .prolata-2026-label-input-group {
+  position: relative;
+  margin-bottom: 40px;
+}
+.prolata-enroll-form .prolata-2026-input {
+  width: 100%;
+  padding: 10px;
+  font-family: "univia-pro", sans-serif;
+  font-size: 16px;
+  color: #000;
+  border: none;
+  border-bottom: 5px solid transparent;
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+.prolata-enroll-form .prolata-2026-input::placeholder {
+  color: #aaa;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.prolata-enroll-form .prolata-2026-input:focus {
+  border-color: color-mix(in srgb, #71b223, white 25%);
+  outline: none;
+}
+.prolata-enroll-form .prolata-2026-input:focus::placeholder {
+  opacity: 1;
+}
+.prolata-enroll-form .prolata-2026-input:not(:placeholder-shown):invalid {
+  border-color: color-mix(in srgb, #b95100, white 25%);
+}
+.prolata-enroll-form .prolata-2026-select {
+  width: 100%;
+  padding: 10px 35px 10px 10px;
+  font-family: "univia-pro", sans-serif;
+  font-size: 16px;
+  color: #000;
+  border: none;
+  border-bottom: 5px solid transparent;
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+  background-color: #ffffff;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.prolata-enroll-form .prolata-2026-select:focus {
+  border-color: color-mix(in srgb, #71b223, white 25%);
+  outline: none;
+}
+.prolata-enroll-form .prolata-2026-select-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #71b223;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+.prolata-enroll-form .prolata-2026-select:focus ~ .prolata-2026-select-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+.prolata-enroll-form .prolata-2026-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-family: "univia-pro", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #AAA;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+.prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-input:focus), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-input:not(:placeholder-shown)), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-select:focus), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-select:valid) {
+  top: calc(100% + 15px);
+}
+.prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-input:focus), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-input:not(:placeholder-shown):valid), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-select:focus), .prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-select:valid) {
+  color: color-mix(in srgb, #71b223, white 25%);
+}
+.prolata-enroll-form .prolata-2026-label:has(+ .prolata-2026-input:not(:placeholder-shown):invalid) {
+  color: color-mix(in srgb, #b95100, white 35%);
+}
+.prolata-enroll-form .prolata-2026-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  font-family: "univia-pro", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: #b95100;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.prolata-enroll-form .prolata-2026-button:hover {
+  background-color: #0d95b5;
+}
+.prolata-enroll-form .prolata-2026-button:focus {
+  outline: none;
+  background-color: #0d95b5;
+}
+.prolata-enroll-form .prolata-2026-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.prolata-enroll-form .prolata-2026-checkbox-group__title {
+  font-family: "univia-pro", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+}
+.prolata-enroll-form .prolata-2026-checkbox-group__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+.prolata-enroll-form .prolata-2026-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: "univia-pro", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.4;
+}
+.prolata-enroll-form .prolata-2026-checkbox-label input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.prolata-enroll-form .prolata-2026-checkbox-label input[type=checkbox]:checked ~ .prolata-2026-checkbox-mark {
+  background-color: #71b223;
+  border-color: #71b223;
+}
+.prolata-enroll-form .prolata-2026-checkbox-label input[type=checkbox]:checked ~ .prolata-2026-checkbox-mark::after {
+  display: block;
+}
+.prolata-enroll-form .prolata-2026-checkbox-label input[type=checkbox]:focus-visible ~ .prolata-2026-checkbox-mark {
+  outline: 2px solid color-mix(in srgb, #71b223, white 25%);
+  outline-offset: 2px;
+}
+.prolata-enroll-form .prolata-2026-checkbox-mark {
+  position: relative;
+  top: 2px;
+  min-width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.prolata-enroll-form .prolata-2026-checkbox-mark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.prolata-enroll-form .prolata-2026-footer {
+  margin-top: 60px;
+  text-align: center;
+}
+.prolata-enroll-form .prolata-2026-footer .prolata-2026-text {
+  color: #fff;
+}
+.prolata-enroll-form .prolata-2026-logos {
+  max-width: 400px;
+}
+.prolata-enroll-form .prolata-2026-img__detail--bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+}
+@media (max-width: 64em) {
+  .prolata-enroll-form .prolata-2026-img__detail--bottom {
+    display: none;
+  }
+}
+.prolata-enroll-form .prolata-2026-img__detail--top {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: rotate(20deg);
+}
+@media (max-width: 64em) {
+  .prolata-enroll-form .prolata-2026-img__detail--top {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
