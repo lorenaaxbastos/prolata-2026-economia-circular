@@ -747,15 +747,32 @@ html {
   background-size: cover;
   background-position: center;
 }
+@media (max-width: 48em) {
+  .prolata-enroll-form {
+    padding: 30px;
+    background: none;
+    background-color: #71b223;
+  }
+}
 .prolata-enroll-form .prolata-2026-heading--primary {
   margin: 0 auto;
   margin-bottom: 40px;
   color: #fff;
 }
+@media (max-width: 48em) {
+  .prolata-enroll-form .prolata-2026-heading--primary {
+    text-align: center;
+  }
+}
 .prolata-enroll-form .prolata-2026-heading--primary::after {
   left: 50%;
   transform: translateX(-50%);
   background-color: #2d5b41;
+}
+@media (max-width: 48em) {
+  .prolata-enroll-form .prolata-2026-heading--primary::after {
+    width: 100px;
+  }
 }
 .prolata-enroll-form .prolata-2026-heading--secondary {
   width: fit-content;
@@ -772,18 +789,24 @@ html {
   background-color: rgba(45, 91, 65, 0.7);
   padding: 40px;
 }
+@media (max-width: 48em) {
+  .prolata-enroll-form .prolata-2026-form {
+    padding: 20px;
+  }
+}
 .prolata-enroll-form .prolata-2026-fieldset {
   border: none;
 }
 .prolata-enroll-form .prolata-2026-fieldset__legend {
   margin-bottom: 40px;
+  margin-top: 40px;
   font-family: "univia-pro", sans-serif;
   font-weight: 700;
   font-size: 28px;
   color: #fff;
 }
-.prolata-enroll-form .prolata-2026-fieldset:not(:first-child) {
-  margin-top: 40px;
+.prolata-enroll-form .prolata-2026-fieldset:first-of-type .prolata-2026-fieldset__legend {
+  margin-top: 0;
 }
 .prolata-enroll-form .prolata-2026-2-col {
   gap: 0;
@@ -882,17 +905,21 @@ html {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #b95100;
+  background-color: #0d95b5;
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.prolata-enroll-form .prolata-2026-button:hover {
-  background-color: #0d95b5;
+.prolata-enroll-form .prolata-2026-button:hover, .prolata-enroll-form .prolata-2026-button:focus {
+  background-color: #00334f;
 }
 .prolata-enroll-form .prolata-2026-button:focus {
   outline: none;
-  background-color: #0d95b5;
+}
+@media (max-width: 48em) {
+  .prolata-enroll-form .prolata-2026-button {
+    width: 100%;
+  }
 }
 .prolata-enroll-form .prolata-2026-checkbox-group {
   display: flex;
@@ -973,6 +1000,7 @@ html {
 }
 .prolata-enroll-form .prolata-2026-logos {
   max-width: 400px;
+  width: 100%;
 }
 .prolata-enroll-form .prolata-2026-img__detail--bottom {
   position: absolute;
@@ -996,6 +1024,163 @@ html {
   .prolata-enroll-form .prolata-2026-img__detail--top {
     display: none;
   }
+}
+.prolata-enroll-form .block-school {
+  padding: 40px;
+  padding-bottom: 10px;
+  background-color: #2d5b41;
+  margin-bottom: 40px;
+}
+@media (max-width: 48em) {
+  .prolata-enroll-form .block-school {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+.prolata-enroll-form .block-school hr {
+  display: none;
+}
+.prolata-enroll-form .block-school__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.prolata-enroll-form .prolata-2026-heading--tertiary {
+  margin: 0;
+  color: #85ca98;
+  font-weight: 600;
+}
+.prolata-enroll-form .prolata-2026-button--remove-school {
+  margin-top: 0;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #b95100;
+}
+.prolata-enroll-form .prolata-2026-button--remove-school:hover, .prolata-enroll-form .prolata-2026-button--remove-school:focus {
+  background-color: #923b48;
+}
+.prolata-enroll-form .prolata-2026-button--add-school {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px dashed #ddd;
+  margin-bottom: 80px;
+}
+.prolata-enroll-form .prolata-2026-button--add-school:hover, .prolata-enroll-form .prolata-2026-button--add-school:focus {
+  background-color: #a87d0a;
+}
+.prolata-enroll-form .prolata-2026-button--add-school [name=add-circle] {
+  font-size: 24px;
+}
+.prolata-enroll-form .prolata-2026-text__link {
+  color: #85ca98;
+  transition: all 0.2s ease;
+}
+.prolata-enroll-form .prolata-2026-text__link:hover {
+  color: #fff;
+}
+
+.enroll-thank-you {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background: url("../assets/BG-purple.jpg");
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 48em) {
+  .enroll-thank-you {
+    height: auto;
+  }
+}
+.enroll-thank-you main {
+  max-width: 700px;
+  margin: 0 100px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 80px;
+}
+@media (max-width: 48em) {
+  .enroll-thank-you main {
+    margin: 0;
+    gap: 40px;
+  }
+}
+.enroll-thank-you .logos {
+  width: 100%;
+  max-width: 400px;
+}
+.enroll-thank-you .detail {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  max-width: 500px;
+}
+@media (max-width: 64em) {
+  .enroll-thank-you .detail {
+    display: none;
+  }
+}
+.enroll-thank-you .prolata-2026-heading--primary {
+  color: #533b8d;
+}
+.enroll-thank-you .prolata-2026-heading--primary::after {
+  display: none;
+}
+.enroll-thank-you .prolata-2026-heading--primary span {
+  position: relative;
+}
+.enroll-thank-you .prolata-2026-heading--primary span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  height: 75%;
+  background-color: #fff;
+  z-index: -1;
+  border-radius: 10px;
+}
+@media (max-width: 48em) {
+  .enroll-thank-you .prolata-2026-heading--primary span::after {
+    border-radius: 5px;
+    top: 8px;
+  }
+}
+.enroll-thank-you .prolata-2026-text {
+  max-width: 620px;
+  color: #533b8d;
+  font-weight: 500;
+  font-size: 24px;
+}
+.enroll-thank-you .box-highlight {
+  max-width: 400px;
+  margin-top: 50px;
+  padding: 40px;
+  background-color: #533b8d;
+  border-radius: 20px;
+}
+.enroll-thank-you .box-highlight .prolata-2026-text {
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+.enroll-thank-you .box-highlight .prolata-2026-text--highlight {
+  background-color: #0d95b5;
+}
+.enroll-thank-you .prolata-2026-heading--secondary {
+  margin: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

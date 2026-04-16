@@ -1,10 +1,57 @@
+<!--
+<?php
+////////////////////////////////////////////////////////////////
+//                                                            //
+// FORMULÁRIO DE CADASTRO PERSONALIZADO SINCRONIZA            //
+// fernando@sincronizaeducacao.com.br                         //
+// lorena@sincronizaeducacao.com.br                           //
+//                                                            //
+// ================== INSTRUÇÕES ==================           //
+//                                                            //
+// Para criar um campo personalizado, basta colocar o "name"  //
+// do input precedido de "profile_field_" e o "id"            //
+// precedido de "id_profile_field_".                          //
+//                                                            //
+// NÃO É PRECISO CRIAR O CAMPO NO MOODLE.                     //
+// O script cria automaticamente caso ele não exista.         //
+//                                                            //
+// Para aplicar máscara em campos que necessitem formatação,  //
+// utilizamos o Inputmask.                                    //
+//                                                            //
+// Para configurar, basta copiar e adaptar os campos já       //
+// existentes no final deste arquivo.                         //
+//                                                            //
+// Exemplo:                                                   //
+// $("#id_profile_field_cpf").inputmask("999.999.999-99");    //
+//                                                            //
+// Saudações a quem tiver acesso a esse código. ;)            //
+//                                                            //
+////////////////////////////////////////////////////////////////
+
+
+require('../../../config.php');
+
+// Verifica se o usuário já está logado (e não é guest)
+if (isloggedin() && !isguestuser())
+{
+    // Redireciona para o dashboard do usuário
+    redirect(new moodle_url('/my/'));
+}
+
+require_once($CFG->dirroot . '/user/editlib.php'); require_once($CFG->libdir .
+'/authlib.php'); require_once('../../lib.php'); require_once($CFG->dirroot .
+'/enrol/manual/lib.php'); //Ajustar com ID do curso no AVA $courseid = "324";
+//Deixar essa variavel vazia para nao enviar email adicional de boas-vindas
+$email_boas_vindas = "Teste - Validação de formulário de cadastro Prolata";
+global $DB, $USER; //print_r($USER); ?>
+-->
 <!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prolata - Cadastro no curso Economia Circular</title>
+    <title>Prolata - Cadastre-se no curso Economia Circular</title>
     <link rel="stylesheet" href="../../css/main.css" />
   </head>
   <body class="prolata-enroll-form">
@@ -17,52 +64,105 @@
       </h2>
     </header>
     <main class="prolata-2026-main">
-      <form class="prolata-2026-form">
+      <form
+        autocomplete="off"
+        action="https://cursos.sincronizaeducacao.com.br/login/signup.php"
+        method="post"
+        accept-charset="utf-8"
+        id="mform1_Rjjc3eSaWRfSYtT"
+        class="prolata-2026-form"
+        data-boost-form-errors-enhanced="1"
+      >
+        <input
+          maxlength="100"
+          size="12"
+          autocapitalize="none"
+          name="pid"
+          type="hidden"
+          value="<?=$courseid;?>"
+        />
+        <input name="sesskey" type="hidden" value="<?=sesskey();?>" />
+        <input name="_qf__login_signup_form" type="hidden" value="1" />
+        <input name="mform_isexpanded_id_category_2" type="hidden" value="1" />
+        <input
+          name="email_boas_vindas"
+          type="hidden"
+          value="<?=$email_boas_vindas;?>"
+        />
+
         <fieldset class="prolata-2026-fieldset">
           <legend class="prolata-2026-fieldset__legend">
             Informações pessoais
           </legend>
 
-          <div class="prolata-2026-label-input-group">
-            <label class="prolata-2026-label" for="nome-completo"
-              >Nome completo</label
-            >
-            <input
-              class="prolata-2026-input"
-              type="text"
-              id="nome-completo"
-              name="nome-completo"
-              placeholder="Insira nome e sobrenome"
-              required
-            />
-          </div>
-
           <div class="prolata-2026-2-col">
             <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="email">E-mail</label>
+              <label class="prolata-2026-label" for="nome-completo">Nome</label>
               <input
                 class="prolata-2026-input"
-                type="email"
-                id="email"
-                name="email"
-                pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-                placeholder="Insira um e-mail válido"
+                type="text"
+                id="id_firstname"
+                name="firstname"
+                placeholder="Insira o nome"
                 required
               />
             </div>
 
             <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="whatsapp">WhatsApp</label>
+              <label class="prolata-2026-label" for="nome-completo"
+                >Sobrenome</label
+              >
+              <input
+                class="prolata-2026-input"
+                type="text"
+                id="id_lastname"
+                name="lastname"
+                placeholder="Insira o sobrenome"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="prolata-2026-2-col">
+            <div class="prolata-2026-label-input-group">
+              <label class="prolata-2026-label" for="cpf">CPF</label>
+              <input
+                class="prolata-2026-input"
+                type="text"
+                id="id_profile_field_324_cpf"
+                name="profile_field_324_cpf"
+                required
+              />
+            </div>
+
+            <div class="prolata-2026-label-input-group">
+              <label
+                class="prolata-2026-label"
+                for="id_profile_field_324_whatsapp"
+                >WhatsApp</label
+              >
               <input
                 class="prolata-2026-input"
                 type="tel"
-                id="whatsapp"
-                name="whatsapp"
+                id="id_profile_field_324_whatsapp"
+                name="profile_field_324_whatsapp"
                 pattern="^\(\d{2}\) \d{5}-\d{4}$"
                 placeholder="Digite apenas números"
                 required
               />
             </div>
+          </div>
+          <div class="prolata-2026-label-input-group">
+            <label class="prolata-2026-label" for="email">E-mail</label>
+            <input
+              class="prolata-2026-input"
+              type="email"
+              id="id_username"
+              name="username"
+              pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+              placeholder="Insira um e-mail válido"
+              required
+            />
           </div>
 
           <div class="prolata-2026-2-col">
@@ -70,7 +170,12 @@
               <label class="prolata-2026-label"
                 >Autodeclaração de cor ou raça</label
               >
-              <select class="prolata-2026-select" required>
+              <select
+                class="prolata-2026-select"
+                id="id_profile_field_324_cor_raca"
+                name="profile_field_324_cor_raca"
+                required
+              >
                 <option value="" disabled selected hidden></option>
                 <option value="branca">Branca</option>
                 <option value="preta">Preta</option>
@@ -90,7 +195,12 @@
                 <label class="prolata-2026-label"
                   >Identificação de gênero</label
                 >
-                <select class="prolata-2026-select" id="genero" required>
+                <select
+                  class="prolata-2026-select"
+                  id="id_profile_field_324_genero"
+                  name="profile_field_324_genero"
+                  required
+                >
                   <option value="" disabled selected hidden></option>
                   <option value="mulher-cis">Mulher Cisgênero</option>
                   <option value="mulher-trans">Mulher Transgênero</option>
@@ -108,17 +218,19 @@
 
               <div
                 class="prolata-2026-label-input-group"
-                id="genero-outro-group"
+                id="grupo_genero_outro"
                 style="display: none"
               >
-                <label class="prolata-2026-label" for="genero-outro"
+                <label
+                  class="prolata-2026-label"
+                  for="id_profile_field_324_genero_outro"
                   >Especifique o gênero</label
                 >
                 <input
                   class="prolata-2026-input"
                   type="text"
-                  id="genero-outro"
-                  name="genero-outro"
+                  id="id_profile_field_324_genero_outro"
+                  name="profile_field_324_genero_outro"
                   placeholder=" "
                 />
               </div>
@@ -126,320 +238,552 @@
           </div>
         </fieldset>
 
-        <fieldset class="prolata-2026-fieldset">
+        <fieldset class="prolata-2026-fieldset" id="fieldset-profissionais">
           <legend class="prolata-2026-fieldset__legend">
             Informações profissionais
           </legend>
 
+          <div id="container-schools">
+            <div class="block-school" id="block-school-1">
+              <div class="block-school__header">
+                <h3
+                  class="prolata-2026-heading prolata-2026-heading--tertiary titulo-escola"
+                >
+                  Escola 1
+                </h3>
+                <button
+                  type="button"
+                  class="prolata-2026-button prolata-2026-button--remove-school"
+                  style="display: none"
+                >
+                  Remover escola
+                </button>
+              </div>
+
+              <div class="prolata-2026-2-col">
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_escola-1"
+                    >Escola de atuação</label
+                  >
+                  <select
+                    class="prolata-2026-select"
+                    name="profile_field_324_escola-1"
+                    id="id_profile_field_324_escola-1"
+                    required
+                  >
+                    <option value="" disabled selected hidden></option>
+                  </select>
+                  <ion-icon
+                    name="chevron-down-outline"
+                    class="prolata-2026-select-icon"
+                  ></ion-icon>
+                </div>
+
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_rede-1"
+                    >Rede de ensino</label
+                  >
+                  <select
+                    class="prolata-2026-select"
+                    name="profile_field_324_rede-1"
+                    id="id_profile_field_324_rede-1"
+                    required
+                  >
+                    <option value="" disabled selected hidden></option>
+                    <option value="municipal">Municipal</option>
+                    <option value="estadual">Estadual</option>
+                    <option value="privada">Privada</option>
+                  </select>
+                  <ion-icon
+                    name="chevron-down-outline"
+                    class="prolata-2026-select-icon"
+                  ></ion-icon>
+                </div>
+              </div>
+
+              <div class="prolata-2026-2-col">
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_estado-1"
+                    >Estado da escola</label
+                  >
+                  <select
+                    class="prolata-2026-select"
+                    name="profile_field_324_estado-1"
+                    id="id_profile_field_324_estado-1"
+                    required
+                  >
+                    <option value="" disabled selected hidden></option>
+                  </select>
+                  <ion-icon
+                    name="chevron-down-outline"
+                    class="prolata-2026-select-icon"
+                  ></ion-icon>
+                </div>
+
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_cidades-1"
+                    >Município da escola</label
+                  >
+                  <select
+                    class="prolata-2026-select"
+                    name="profile_field_324_cidades-1"
+                    id="id_profile_field_324_cidades-1"
+                    required
+                  >
+                    <option value="" disabled selected hidden></option>
+                  </select>
+                  <ion-icon
+                    name="chevron-down-outline"
+                    class="prolata-2026-select-icon"
+                  ></ion-icon>
+                </div>
+              </div>
+
+              <div class="prolata-2026-checkbox-group">
+                <p class="prolata-2026-checkbox-group__title">
+                  Segmento(s) de atuação:
+                </p>
+                <div class="prolata-2026-checkbox-group__options">
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_infantil-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_infantil-1"
+                      value="infantil"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Educação
+                    Infantil
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_fund1-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_fund1-1"
+                      value="fund1"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Anos
+                    Iniciais do Ensino Fundamental
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_fund2-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_fund2-1"
+                      value="fund2"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Anos Finais
+                    do Ensino Fundamental
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_medio-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_medio-1"
+                      value="medio"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Ensino Médio
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_tecnico-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_tecnico-1"
+                      value="tecnico"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Cursos
+                    Técnicos e Profissionalizantes
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_eja-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_eja-1"
+                      value="eja"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Educação de
+                    Jovens e Adultos (EJA)
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_segmento_magisterio-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_segmento-1"
+                      id="id_profile_field_324_segmento_magisterio-1"
+                      value="magisterio"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Curso Normal
+                    (Magistério)
+                  </label>
+                </div>
+              </div>
+
+              <div class="prolata-2026-checkbox-group">
+                <p class="prolata-2026-checkbox-group__title">
+                  Área de atuação:
+                </p>
+                <div class="prolata-2026-checkbox-group__options">
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_polivalente-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_polivalente-1"
+                      value="polivalente"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Polivalente
+                    (Anos Iniciais)
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_ciencias-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_ciencias-1"
+                      value="ciencias"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Ciências
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_biologia-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_biologia-1"
+                      value="biologia"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Biologia
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_portugues-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_portugues-1"
+                      value="portugues"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Língua
+                    Portuguesa
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_matematica-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_matematica-1"
+                      value="matematica"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Matemática
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_geografia-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_geografia-1"
+                      value="geografia"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Geografia
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_historia-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_historia-1"
+                      value="historia"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>História
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_religioso-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_religioso-1"
+                      value="religioso"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Ensino
+                    Religioso
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_quimica-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_quimica-1"
+                      value="quimica"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Química
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_fisica-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_fisica-1"
+                      value="fisica"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Física
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_sociologia-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_sociologia-1"
+                      value="sociologia"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Sociologia
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_artes-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_artes-1"
+                      value="artes"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Artes
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_edfisica-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_edfisica-1"
+                      value="ed-fisica"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Educação
+                    Física
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_literatura-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_literatura-1"
+                      value="literatura"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Literatura
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_ingles-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_ingles-1"
+                      value="ingles"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Língua
+                    Inglesa
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_espanhol-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_espanhol-1"
+                      value="espanhol"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Língua
+                    Espanhola
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_filosofia-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_filosofia-1"
+                      value="filosofia"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Filosofia
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_especializado-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_especializado-1"
+                      value="especializado"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Atendimento
+                    Educacional Especializado
+                  </label>
+                  <label
+                    class="prolata-2026-checkbox-label"
+                    for="id_profile_field_324_atuacao_projetovida-1"
+                  >
+                    <input
+                      type="checkbox"
+                      name="profile_field_324_atuacao-1"
+                      id="id_profile_field_324_atuacao_projetovida-1"
+                      value="projeto-vida"
+                    />
+                    <span class="prolata-2026-checkbox-mark"></span>Projeto de
+                    Vida
+                  </label>
+                </div>
+              </div>
+
+              <div class="prolata-2026-2-col">
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_turmas-1"
+                    >Número de turmas</label
+                  >
+                  <input
+                    class="prolata-2026-input"
+                    type="number"
+                    id="id_profile_field_324_turmas-1"
+                    name="profile_field_324_turmas-1"
+                    placeholder="Ex: 5"
+                    min="1"
+                    required
+                  />
+                </div>
+                <div class="prolata-2026-label-input-group">
+                  <label
+                    class="prolata-2026-label"
+                    for="id_profile_field_324_alunos-1"
+                    >Número de alunos(as)</label
+                  >
+                  <input
+                    class="prolata-2026-input"
+                    type="number"
+                    id="id_profile_field_324_alunos-1"
+                    name="profile_field_324_alunos-1"
+                    placeholder="Ex: 150"
+                    min="1"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="btn-add-escola"
+            class="prolata-2026-button prolata-2026-button--add-school"
+          >
+            <span>Adicionar outra escola</span
+            ><ion-icon name="add-circle"></ion-icon>
+          </button>
+        </fieldset>
+
+        <div class="prolata-2026-2-col">
           <div class="prolata-2026-label-input-group">
-            <label class="prolata-2026-label" for="escola"
-              >Escola(s) de atuação</label
+            <label
+              class="prolata-2026-label"
+              for="id_profile_field_324_como_sabendo"
+              >Como ficou sabendo do curso?</label
+            >
+            <select
+              class="prolata-2026-select"
+              id="id_profile_field_324_como_sabendo"
+              name="profile_field_324_como_sabendo"
+              required
+            >
+              <option value="" disabled selected hidden></option>
+              <option value="redes-sociais">Redes sociais</option>
+              <option value="indicacao-prolata">
+                Indicação de Associados Prolata
+              </option>
+              <option value="comunicacao-rede">
+                Comunicação da rede de ensino
+              </option>
+              <option value="amigos">Amigos</option>
+              <option value="outros">Outro</option>
+            </select>
+            <ion-icon
+              name="chevron-down-outline"
+              class="prolata-2026-select-icon"
+            ></ion-icon>
+          </div>
+
+          <div
+            class="prolata-2026-label-input-group"
+            id="grupo_como_sabendo_outro"
+            style="display: none"
+          >
+            <label
+              class="prolata-2026-label"
+              for="id_profile_field_324_como_sabendo_outro"
+              >Especifique</label
             >
             <input
               class="prolata-2026-input"
               type="text"
-              id="escola"
-              name="escola"
-              placeholder="Se mais de uma escola, separá-las com vírgula."
-              required
+              id="id_profile_field_324_como_sabendo_outro"
+              name="profile_field_324_como_sabendo_outro"
+              placeholder=" "
             />
           </div>
-
-          <div class="prolata-2026-checkbox-group">
-            <p class="prolata-2026-checkbox-group__title">
-              Atua em qual(is) rede(s) de ensino:
-            </p>
-            <div class="prolata-2026-checkbox-group__options">
-              <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="rede" value="municipal" />
-                <span class="prolata-2026-checkbox-mark"></span>Municipal
-              </label>
-              <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="rede" value="estadual" />
-                <span class="prolata-2026-checkbox-mark"></span>Estadual
-              </label>
-              <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="rede" value="privada" />
-                <span class="prolata-2026-checkbox-mark"></span>Privada
-              </label>
-            </div>
-          </div>
-
-          <div class="prolata-2026-2-col">
-            <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="estado"
-                >Estado(s) da(s) escola(s)</label
-              >
-              <input
-                class="prolata-2026-input"
-                type="text"
-                id="estado"
-                name="estado"
-                placeholder="Se mais de um estado, separá-los com vírgula."
-                required
-              />
-            </div>
-            <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="municipio"
-                >Município(s) da(s) escola(s)</label
-              >
-              <input
-                class="prolata-2026-input"
-                type="text"
-                id="municipio"
-                name="municipio"
-                placeholder="Se mais de um município, separá-los com vírgula."
-                required
-              />
-            </div>
-          </div>
-
-          <div class="prolata-2026-checkbox-group">
-            <p class="prolata-2026-checkbox-group__title">
-              Segmento(s) de atuação:
-            </p>
-            <div class="prolata-2026-checkbox-group__options">
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="infantil" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Educação Infantil</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="fund1" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Anos Iniciais do Ensino Fundamental</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="fund2" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Anos Finais do Ensino Fundamental</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="medio" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Ensino Médio</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="tecnico" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Cursos Técnicos e Profissionalizantes</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="segmento" value="eja" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Educação de Jovens e Adultos (EJA)</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input
-                  type="checkbox"
-                  name="segmento"
-                  value="magisterio"
-                /><span class="prolata-2026-checkbox-mark"></span>Curso Normal
-                (Magistério)</label
-              >
-            </div>
-          </div>
-
-          <div class="prolata-2026-checkbox-group">
-            <p class="prolata-2026-checkbox-group__title">Área de atuação:</p>
-            <div class="prolata-2026-checkbox-group__options">
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="polivalente" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Polivalente (Anos Iniciais)</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="ciencias" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Ciências</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="biologia" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Biologia</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="portugues" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Língua Portuguesa</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="matematica" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Matemática</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="geografia" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Geografia</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="historia" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                História</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="religioso" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Ensino Religioso</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="quimica" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Química</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="fisica" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Física</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="sociologia" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Sociologia</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="artes" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Artes</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="ed-fisica" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Educação Física</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="literatura" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Literatura</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="ingles" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Língua Inglesa</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="espanhol" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Língua Espanhola</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="filosofia" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Filosofia</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input
-                  type="checkbox"
-                  name="area"
-                  value="especializado"
-                /><span class="prolata-2026-checkbox-mark"></span>Atendimento
-                Educacional Especializado</label
-              >
-              <label class="prolata-2026-checkbox-label"
-                ><input type="checkbox" name="area" value="projeto-vida" /><span
-                  class="prolata-2026-checkbox-mark"
-                ></span>
-                Projeto de Vida</label
-              >
-            </div>
-          </div>
-
-          <div class="prolata-2026-2-col">
-            <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="turmas"
-                >Número de turmas</label
-              >
-              <input
-                class="prolata-2026-input"
-                type="number"
-                id="turmas"
-                name="turmas"
-                placeholder="Ex: 5"
-                min="1"
-                required
-              />
-            </div>
-            <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label" for="alunos"
-                >Número de alunos(as)</label
-              >
-              <input
-                class="prolata-2026-input"
-                type="number"
-                id="alunos"
-                name="alunos"
-                placeholder="Ex: 150"
-                min="1"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="prolata-2026-2-col">
-            <div class="prolata-2026-label-input-group">
-              <label class="prolata-2026-label"
-                >Como ficou sabendo do curso?</label
-              >
-              <select class="prolata-2026-select" id="como-sabendo" required>
-                <option value="" disabled selected hidden></option>
-                <option value="redes-sociais">Redes sociais</option>
-                <option value="indicacao-prolata">
-                  Indicação de Associados Prolata
-                </option>
-                <option value="comunicacao-rede">
-                  Comunicação da rede de ensino
-                </option>
-                <option value="amigos">Amigos</option>
-                <option value="outros">Outro</option>
-              </select>
-              <ion-icon
-                name="chevron-down-outline"
-                class="prolata-2026-select-icon"
-              ></ion-icon>
-            </div>
-
-            <div
-              class="prolata-2026-label-input-group"
-              id="sabendo-outro-group"
-              style="display: none"
-            >
-              <label class="prolata-2026-label" for="sabendo-outro"
-                >Especifique</label
-              >
-              <input
-                class="prolata-2026-input"
-                type="text"
-                id="sabendo-outro"
-                name="sabendo-outro"
-                placeholder=" "
-              />
-            </div>
-          </div>
-        </fieldset>
+        </div>
 
         <fieldset class="prolata-2026-fieldset">
           <legend class="prolata-2026-fieldset__legend">
@@ -452,19 +796,29 @@
               style="grid-template-columns: 1fr"
             >
               <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="aceite_lgpd" required />
+                <input
+                  type="checkbox"
+                  id="id_profile_field_324_aceite_privacidade"
+                  name="profile_field_324_aceite_privacidade"
+                  required
+                />
                 <span class="prolata-2026-checkbox-mark"></span>
-                Aceito os termos da Lei Geral de Proteção de Dados (LGPD)
+                Concordo com o
+                <a
+                  class="prolata-2026-text__link"
+                  href="https://sincronizaeducacao.com.br/termos-e-condicoes-de-uso/"
+                  target="_blank"
+                  >Termo de Privacidade e Uso de Dados</a
+                >
               </label>
 
               <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="termo_uso" required />
-                <span class="prolata-2026-checkbox-mark"></span>
-                Concordo com o Termo de uso de dados
-              </label>
-
-              <label class="prolata-2026-checkbox-label">
-                <input type="checkbox" name="autorizacao_imagem" required />
+                <input
+                  type="checkbox"
+                  id="id_profile_field_324_aceite_uso_imagem"
+                  name="profile_field_324_aceite_uso_imagem"
+                  required
+                />
                 <span class="prolata-2026-checkbox-mark"></span>
                 Autorizo o uso de minha imagem e voz
               </label>
@@ -472,7 +826,7 @@
           </div>
         </fieldset>
 
-        <button class="prolata-2026-button">INSCREVER</button>
+        <button type="submit" class="prolata-2026-button">INSCREVER</button>
       </form>
     </main>
 
@@ -485,36 +839,19 @@
       <p class="prolata-2026-text">Sincroniza Educação © 2026</p>
     </footer>
 
-    <img
-      class="prolata-2026-img__detail--bottom"
-      src="../../assets/lata-2.png"
-    />
-    <img class="prolata-2026-img__detail--top" src="../../assets/lata-1.png" />
+    <img class="prolata-2026-img__detail--bottom" src="assets/lata-2.png" />
+    <img class="prolata-2026-img__detail--top" src="assets/lata-1.png" />
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const inputWhatsapp = document.getElementById("whatsapp");
-
-        inputWhatsapp.addEventListener("input", function (e) {
-          let valor = e.target.value.replace(/\D/g, "");
-          valor = valor.substring(0, 11);
-
-          if (valor.length > 0) {
-            valor = valor.replace(/^(\d)/, "($1");
-          }
-          if (valor.length > 3) {
-            valor = valor.replace(/^(\(\d{2})(\d)/, "$1) $2");
-          }
-          if (valor.length > 9) {
-            valor = valor.replace(/^(\(\d{2}\) \d{5})(\d)/, "$1-$2");
-          }
-
-          e.target.value = valor;
-        });
-
-        const selectGenero = document.getElementById("genero");
-        const groupGeneroOutro = document.getElementById("genero-outro-group");
-        const inputGeneroOutro = document.getElementById("genero-outro");
+        // --- LÓGICA DO GÊNERO ---
+        const selectGenero = document.getElementById(
+          "id_profile_field_324_genero",
+        );
+        const groupGeneroOutro = document.getElementById("grupo_genero_outro");
+        const inputGeneroOutro = document.getElementById(
+          "id_profile_field_324_genero_outro",
+        );
 
         if (selectGenero) {
           selectGenero.addEventListener("change", function () {
@@ -529,24 +866,108 @@
           });
         }
 
-        const selectSabendo = document.getElementById("como-sabendo");
-        const groupSabendoOutro = document.getElementById(
-          "sabendo-outro-group",
+        // --- LÓGICA DO COMO FICOU SABENDO ---
+        const selectSabendo = document.getElementById(
+          "id_profile_field_324_como_sabendo",
         );
-        const inputSabendoOutro = document.getElementById("sabendo-outro");
+        const groupSabendoOutro = document.getElementById(
+          "grupo_como_sabendo_outro",
+        );
 
-        selectSabendo.addEventListener("change", function () {
-          if (this.value === "outros") {
-            groupSabendoOutro.style.display = "block";
-            inputSabendoOutro.setAttribute("required", "required");
-          } else {
-            groupSabendoOutro.style.display = "none";
-            inputSabendoOutro.removeAttribute("required");
-            inputSabendoOutro.value = "";
-          }
-        });
+        const inputSabendoOutro = document.getElementById(
+          "id_profile_field_324_como_sabendo_outro",
+        );
+
+        if (selectSabendo) {
+          selectSabendo.addEventListener("change", function () {
+            if (this.value === "outros") {
+              groupSabendoOutro.style.display = "block";
+              inputSabendoOutro.setAttribute("required", "required");
+            } else {
+              groupSabendoOutro.style.display = "none";
+              inputSabendoOutro.removeAttribute("required");
+              inputSabendoOutro.value = "";
+            }
+          });
+        }
+
+        // --- LÓGICA DE ADICIONAR E REMOVER ESCOLAS ---
+        const btnAddEscola = document.getElementById("btn-add-escola");
+        const escolasContainer = document.getElementById("container-schools");
+
+        function reordenarEscolas() {
+          const blocos = document.querySelectorAll(".block-school");
+
+          blocos.forEach((bloco, index) => {
+            const numEscola = index + 1;
+
+            bloco.id = `block-school-${numEscola}`;
+            const titulo = bloco.querySelector(".titulo-escola");
+            if (titulo) {
+              titulo.innerText = `Escola ${numEscola}`;
+            }
+
+            const elements = bloco.querySelectorAll("input, select");
+            elements.forEach((el) => {
+              if (el.id) {
+                let baseId = el.id.replace(/-\d+$/, "");
+                el.id = `${baseId}-${numEscola}`;
+              }
+              if (el.name) {
+                let baseName = el.name.replace(/-\d+$/, "");
+                el.name = `${baseName}-${numEscola}`;
+              }
+            });
+
+            const labels = bloco.querySelectorAll("label[for]");
+            labels.forEach((label) => {
+              const originalFor = label.getAttribute("for");
+              if (originalFor) {
+                let baseFor = originalFor.replace(/-\d+$/, "");
+                label.setAttribute("for", `${baseFor}-${numEscola}`);
+              }
+            });
+          });
+        }
+
+        if (btnAddEscola && escolasContainer) {
+          btnAddEscola.addEventListener("click", function () {
+            const blockToClone = document.getElementById("block-school-1");
+            const newBlock = blockToClone.cloneNode(true);
+
+            const elements = newBlock.querySelectorAll("input, select");
+            elements.forEach((el) => {
+              if (el.type === "checkbox" || el.type === "radio") {
+                el.checked = false;
+              } else {
+                el.value = "";
+              }
+            });
+
+            const separador = document.createElement("hr");
+            separador.style.margin = "32px 0 24px 0";
+            separador.style.borderTop = "2px solid #eaeaea";
+            newBlock.insertBefore(separador, newBlock.firstChild);
+
+            const btnRemove = newBlock.querySelector(
+              ".prolata-2026-button--remove-school",
+            );
+            if (btnRemove) {
+              btnRemove.style.display = "block";
+              btnRemove.addEventListener("click", function () {
+                newBlock.remove();
+                reordenarEscolas();
+              });
+            }
+
+            escolasContainer.appendChild(newBlock);
+
+            reordenarEscolas();
+          });
+        }
       });
     </script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -555,5 +976,17 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.4-beta.33/bindings/inputmask.binding.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.4-beta.33/inputmask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.4-beta.33/jquery.inputmask.min.js"></script>
+
+    <script>
+      setTimeout(function () {
+        $("#id_profile_field_324_whatsapp").inputmask("(99) 99999-9999");
+        $("#id_profile_field_324_cpf").inputmask("999.999.999-99");
+      });
+    </script>
   </body>
 </html>
